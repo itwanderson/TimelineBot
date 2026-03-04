@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeline Generator - Project Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Timeline Generator</h1>
+        </header>
+
+        <main>
+            <section class="controls">
+                <form id="timelineForm">
+                    <div class="form-group">
+                        <label for="startDate">Project Start Date (Optional)</label>
+                        <input type="date" id="startDate" name="startDate">
+                        <small>Leave blank to show weeks (W1, W2...)</small>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="numDesigns">Primary Workstreams</label>
+                            <input type="number" id="numDesigns" name="numDesigns" min="1" value="4" required title="Number of main project tracks">
+                        </div>
+                        <div class="form-group">
+                            <label for="numPartners">Scale Factor</label>
+                            <input type="number" id="numPartners" name="numPartners" min="1" value="10" required title="Complexity or participant multiplier">
+                        </div>
+                        <div class="form-group">
+                            <label for="numWarehouses">Secondary Workstreams</label>
+                            <input type="number" id="numWarehouses" name="numWarehouses" min="0" value="2" title="Additional sequential tasks">
+                        </div>
+                    </div>
+
+                    <div class="actions">
+                        <button type="submit" class="btn-primary">Generate Timeline</button>
+                        <button type="button" id="downloadPng" class="btn-secondary">Download PNG</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="output">
+                <div id="timelineWrapper" class="timeline-wrapper">
+                    <canvas id="timelineCanvas"></canvas>
+                </div>
+                
+                <div class="legend">
+                    <div class="legend-item"><span class="box blue"></span> Main Phase 1</div>
+                    <div class="legend-item"><span class="box green"></span> Main Phase 2</div>
+                    <div class="legend-item"><span class="box orange"></span> Secondary Task</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Timeline Generator. 16:9 Slide-Ready Output.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
